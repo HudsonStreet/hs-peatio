@@ -1,0 +1,12 @@
+/root/.rbenv/versions/2.5.3/lib/ruby/site_ruby/2.5.0/bundler/spec_set.rb:91:in `block in materialize': Could not find rake-12.3.1 in any of the sources (Bundler::GemNotFound)
+	from /root/.rbenv/versions/2.5.3/lib/ruby/site_ruby/2.5.0/bundler/spec_set.rb:85:in `map!'
+	from /root/.rbenv/versions/2.5.3/lib/ruby/site_ruby/2.5.0/bundler/spec_set.rb:85:in `materialize'
+	from /root/.rbenv/versions/2.5.3/lib/ruby/site_ruby/2.5.0/bundler/definition.rb:170:in `specs'
+	from /root/.rbenv/versions/2.5.3/lib/ruby/site_ruby/2.5.0/bundler/definition.rb:237:in `specs_for'
+	from /root/.rbenv/versions/2.5.3/lib/ruby/site_ruby/2.5.0/bundler/definition.rb:226:in `requested_specs'
+	from /root/.rbenv/versions/2.5.3/lib/ruby/site_ruby/2.5.0/bundler/runtime.rb:108:in `block in definition_method'
+	from /root/.rbenv/versions/2.5.3/lib/ruby/site_ruby/2.5.0/bundler/runtime.rb:20:in `setup'
+	from /root/.rbenv/versions/2.5.3/lib/ruby/site_ruby/2.5.0/bundler.rb:107:in `setup'
+	from /root/.rbenv/versions/2.5.3/lib/ruby/site_ruby/2.5.0/bundler/setup.rb:20:in `<top (required)>'
+	from /root/.rbenv/versions/2.5.3/lib/ruby/site_ruby/2.5.0/rubygems/core_ext/kernel_require.rb:54:in `require'
+	from /root/.rbenv/versions/2.5.3/lib/ruby/site_ruby/2.5.0/rubygems/core_ext/kernel_require.rb:54:in `require'
