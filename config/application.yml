@@ -1,5 +1,5 @@
 defaults: &defaults
-  TIMEZONE: 'Paris'
+  TIMEZONE: 'Eastern Time (US & Canada)'
 
   # Configure Redis URL, for a TCP connection:
   # `redis://:[password]@[hostname]:[port]/[db]`
@@ -10,7 +10,7 @@ defaults: &defaults
   ADMIN: 'admin@peatio.tech'
 
   # Application URL configuration variables.
-  URL_HOST:                peatio.tech
+  URL_HOST:                peatio.hudsonstreet.info:3000
   URL_SCHEME:              http
   FORCE_SECURE_CONNECTION: 'false' # Set to "true" to disable access via unsecured HTTP, send HSTS headers and use secure cookies.
 
@@ -22,20 +22,22 @@ defaults: &defaults
 
   # Enabled OAuth2 provider.
   # Don't forget to check out configuration at config/initializers/omniauth.rb.
-  OAUTH2_SIGN_IN_PROVIDER: ~
+  OAUTH2_SIGN_IN_PROVIDER: auth0
 
   # Configuration variables for sign in with Google.
   # See https://github.com/zquestz/omniauth-google-oauth2
-  GOOGLE_CLIENT_ID:
-  GOOGLE_CLIENT_SECRET:
-  GOOGLE_OAUTH2_REDIRECT_URL: ~ # Specify URL address to which user will be redirected after successful sign in.
+  GOOGLE_CLIENT_ID: 577395765981-a33g2pph21jubkis156s8pufokkaeq9h.apps.googleusercontent.com
+  GOOGLE_CLIENT_SECRET: Z-RNkFgc3q8lnLRYfWviFUZG
+  GOOGLE_OAUTH2_REDIRECT_URL: http://peatio.hudsonstreet.info:3000/auth/google_oauth2/callback
+  # Specify URL address to which user will be redirected after successful sign in.
 
   # Configuration variables for sign in with Auth0.
   # See https://github.com/auth0/omniauth-auth0
-  AUTH0_OAUTH2_DOMAIN:
-  AUTH0_OAUTH2_CLIENT_ID:
-  AUTH0_OAUTH2_CLIENT_SECRET:
-  AUTH0_OAUTH2_REDIRECT_URL:  ~ # Specify URL address to which user will be redirected after successful sign in.
+  AUTH0_OAUTH2_DOMAIN: jinsiang.auth0.com
+  AUTH0_OAUTH2_CLIENT_ID: EglfAtOlmZV1o6N4VZceZvUMw9MRjPS1
+  AUTH0_OAUTH2_CLIENT_SECRET: oc1mbRO_RChfdLbnD02Xh3Mif0pKSFCieAL4XDSssD830rJ8G1Ail03wkg1PPLzb
+  AUTH0_OAUTH2_REDIRECT_URL: http://peatio.hudsonstreet.info:3000/auth/auth0/callback
+  # Specify URL address to which user will be redirected after successful sign in.
 
   # Configuration variables for sign in with Barong OAuth2 server.
   # See https://github.com/rubykube/omniauth-barong
@@ -172,16 +174,16 @@ development:
   <<: *defaults
 
   # Development OAuth2 provider.
-  OAUTH2_SIGN_IN_PROVIDER:    google
+  OAUTH2_SIGN_IN_PROVIDER:    auth0
 
   # Development configuration variables for sign in with Google.
   GOOGLE_CLIENT_ID:           1044454023387-emhp5vmfnp5cf1n9juk09g8gcckrova7.apps.googleusercontent.com
   GOOGLE_CLIENT_SECRET:       tAFZvO200-0z3MpCyOpkPH0G
 
   # Development configuration variables for sign in with Auth0.
-  AUTH0_OAUTH2_DOMAIN:        peatio-playground.auth0.com
-  AUTH0_OAUTH2_CLIENT_ID:     lGKS9ADpknQr415RNZrrQTf3Jh8k2Fvc
-  AUTH0_OAUTH2_CLIENT_SECRET: LxUPnrrrpRHSB-vVgWU3TwmakQ8acY5mYVTaVgkREQL3i9avjpOnWTXSSEsrbLzK
+  AUTH0_OAUTH2_DOMAIN:        jinsiang.auth0.com
+  AUTH0_OAUTH2_CLIENT_ID:     EglfAtOlmZV1o6N4VZceZvUMw9MRjPS1
+  AUTH0_OAUTH2_CLIENT_SECRET: oc1mbRO_RChfdLbnD02Xh3Mif0pKSFCieAL4XDSssD830rJ8G1Ail03wkg1PPLzb
 
   # Development configuration variables for Event API JWT.
   EVENT_API_JWT_PRIVATE_KEY:  LS0tLS1CRUdJTiBSU0EgUFJJVkFURSBLRVktLS0tLQpNSUlFb3dJQkFBS0NBUUVBb3VLVHh2SFVJVDJENmdXaWJRcS9kbW9BUUwyeWJ6SGFiUXRlc1AyL2o1VjkvUExaCmhHNWtLVkpPWjcxVVdMQ3BjZTQxeHZzQ0lKd0Q5MnVDNW5Lak5wblRDTWpwTUJNMGg0aFF4a2VOeHdNeU41N1gKM1QzbWFCVmZzUTNCblErSm84L0tzdUxhODlvY0dDeDgvYlUyOGNld2FxRk8ydUVMWWJiaUZadGFCenFJd0ZCdQpTM3hGQmt6NE16MGgvWEIxTjl5ZDg5d25OMm1oWVBsU0xrTGVUdFoyeWswK2krZHhZd2V4MEozOXJDS0hnRWRKCko1NTZHNmdtZWpJZ3dtcHNVeHJpdkVJRU5jR09POHdmQVBUVy92SFZmc2ROTExHejRtZE9CWmxsa2orcFFQODYKTnFSUjRKSnFDdEg3dHYyaXVBSGI4NnB5anVlZkVGU3ljMmxZRXdJREFRQUJBb0lCQUJrUlViamVZczB5MEdobApzWmVpZmREVmczQnpRVkRIbFZ3TzBlWGZSMm5ya2RZcDhidmwyVmhhcUdKaXl1WlRXZUNFenBYdTcyYmhXK0xxCkV0MHdhMW50MW9LVm1QMmpGd1I4d0NHanhYZ0pUK01yZVFFOWs0WVZOQUxsb1JSdzNiZnVOTDNQRis5TGMrTnMKaFZmdVdhUmdIUkJyL3R6RW9hSEtLWVUxd1djM0poSitNRklNVkZBT0RvaGp6bXNlV2lzTDNnbzVrUC9KYUpVZwprNm13Wnd0QzRvQ3pPQ3FoRGF0WVI3cktJbXMyS1lCNVBwaTRDTThkRzJGTzBwWGxXUU9XT0t2N01TUjlVeEtzCmd4YWFRRlhjajBQM2lSRFVQMDRkSWtqblNtemZmR0F2L3lBTHovZjk0V1lIK3gvd01DWms4ejJ4bnRJclllM3UKN0NOd045RUNnWUVBMEplcThCaXlKczF6YlBpcTlWWnR5L3R0M1dhaXJDbUl4cXRwU2syVU9UNmh2TldiMTUxVwpBMGRWYWEvSVBhdDV4ZkNWdGhkNlB3UGpJbWVPVXQ4Mlhib2JYeE8zREJUcmVzTlRNWUhiMGVUK09sSG04SU5uCnVwOGFxZWpWejc1ME5VYUxGWWpxWk1wVVR1Z2FVREIzNWZ1bXg0SXliNm5LRGMvSStrN25qUlVDZ1lFQXgrZVAKcE4vR1dqYjJUOU1CUm1xdkVtSGxKOXBZSEZpWGZlWnJHdzg3Q2E5WjVDYVp1VzBrSVAwSlhWSDZOOThqL2RvbApDTHZPdE5oZVFoaGUrTU91VXJMT0ttaytpckM5SEk2cW9aT3Nkc0lCc0pXSHdPanB1UW00OWNvdXc0K2ZKOWRxCjN2cTE2bG5EQlNoRU5HTEFhdVBzWDhLRUlYVzhRRnBDM3ppbXFvY0NnWUI2bTh2VVdRL09reEQzeXFyaWpxejMKSzVFR2hKKzF4cXdvNnZSMndtY1B4dXJXemxCT1NxTVdSa1hFVzVpOTl4OGE1REY3MlF6NElWYlBFRU91SHBvYwpPWnFCSmx0LzlJUDlvdll4c1h6K1FUWFdIZkk3Q1dKZFpjd01kMW5HUk5LVnhpTld3eVhUbk1JMXAyUmdJajAzCnA5WCtpMThPRjZVMnZSNExVM256aVFLQmdBVVZzOGFxMW4zRzloN3pyQTJoZXhDSm91MlBsVHdyV0xjZ0hFdFUKNk5pSE9FOGdXRHFxTndnTHg2Z3pCSjFWTkxJcFVWWFdpUng2Z0hOSDhXcDhkN3VzeHFlM2c1cTlnaUh1MHhKSApFbFQyL0ZvRWc2NTVmakJ4dWQydXBkL2RrRnZRRSt6V0RiaUhUZm1jbTVlRmg0VndoTHV1MC9PUjdoYm85TmgrCnRXYVRBb0dCQUwxVjFUTWZZRFhwYjFwaFBaV2pQL29iV1NqK2VyUXlYdit3TTIxVzRYWFI4YTBkV2hOVXdVeDAKdU9WZ2s1ZlN1OExtNG0zWGNYZ09wV0VJVkZJTzFodDFNN0xxZ0VGNGhFOHl6Y0Vldy9HWXR4VkpCTWEyODVpVQpaVUtkeCt6QWd5VFlnYk50VkVseTVobGRuT2orVmNzanVEL3krWEhXWVl5OVpLa2pNdDhECi0tLS0tRU5EIFJTQSBQUklWQVRFIEtFWS0tLS0tCg==
